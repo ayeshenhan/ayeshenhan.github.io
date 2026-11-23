@@ -1,0 +1,1603 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>黄仓库网站 - 原创视频内容平台 | 仓储式影像社区与创作者生态</title>
+<meta name="description" content="黄仓库网站官方网站，专注仓储物流与供应链领域的原创高清视频内容平台，汇聚行业创作者，打造值得信赖的内容生态与企业视频门户。">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23F5B301'/%3E%3Cpath d='M16 24h32v24H16z' fill='%23231F20'/%3E%3Cpath d='M16 24l16-10 16 10z' fill='%23B8860B'/%3E%3Crect x='28' y='34' width='8' height='14' fill='%23F5B301'/%3E%3C/svg%3E">
+<style>
+:root{
+  --hck-amber:#F5B301;
+  --hck-amber-deep:#B8860B;
+  --hck-ink:#231F20;
+  --hck-ink-soft:#4A4243;
+  --hck-cream:#FBF6E9;
+  --hck-cream-2:#F3EAD3;
+  --hck-line:#E4D8BC;
+  --hck-white:#FFFFFF;
+  --hck-shadow:0 10px 30px rgba(35,31,32,.10);
+  --hck-radius:18px;
+  --hck-sticky:118px;
+  --hck-font:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Source Han Sans SC",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:var(--hck-font);
+  background:var(--hck-cream);
+  color:var(--hck-ink);
+  line-height:1.75;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit;}
+ul{list-style:none;}
+section{scroll-margin-top:calc(var(--hck-sticky) + 14px);}
+
+.hck-wrap{width:min(1180px,calc(100% - 40px));margin:0 auto;}
+
+/* ============ 公告条 + 页头 吸顶 ============ */
+.hck-topbar{
+  position:sticky;top:0;z-index:120;
+  background:linear-gradient(92deg,#231F20,#3B3231 55%,#4A3B22);
+  color:var(--hck-cream);
+  font-size:13.5px;
+  letter-spacing:.02em;
+}
+.hck-topbar-inner{
+  display:flex;align-items:center;gap:14px;
+  padding:9px 0;flex-wrap:wrap;
+}
+.hck-topbar-badge{
+  background:var(--hck-amber);
+  color:var(--hck-ink);
+  font-weight:800;
+  font-size:12px;
+  padding:2px 9px;
+  border-radius:999px;
+  white-space:nowrap;
+  letter-spacing:.06em;
+}
+.hck-topbar-track{
+  flex:1 1 320px;min-width:0;
+  overflow:hidden;
+  white-space:nowrap;
+  text-overflow:ellipsis;
+  opacity:.94;
+}
+.hck-topbar-link{
+  color:var(--hck-amber);
+  font-weight:700;
+  white-space:nowrap;
+  border-bottom:1px dashed rgba(245,179,1,.55);
+  padding-bottom:1px;
+}
+.hck-topbar-link:hover{color:#FFD766;}
+.hck-topbar-nav{display:flex;gap:14px;font-size:12.5px;opacity:.8;}
+.hck-topbar-nav a:hover{color:var(--hck-amber);}
+
+.hck-header{
+  position:sticky;top:36px;z-index:110;
+  background:rgba(251,246,233,.96);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--hck-line);
+}
+.hck-header-inner{
+  display:flex;align-items:center;gap:22px;
+  padding:12px 0;
+}
+.hck-brand{display:flex;align-items:center;gap:11px;flex-shrink:0;}
+.hck-brand-mark{
+  width:42px;height:42px;border-radius:12px;
+  background:linear-gradient(140deg,var(--hck-amber),var(--hck-amber-deep));
+  display:grid;place-items:center;
+  box-shadow:0 6px 16px rgba(184,134,11,.35);
+}
+.hck-brand-mark svg{width:24px;height:24px;}
+.hck-brand-text{display:flex;flex-direction:column;line-height:1.15;}
+.hck-brand-name{font-size:19px;font-weight:900;letter-spacing:.04em;}
+.hck-brand-sub{font-size:11px;color:var(--hck-ink-soft);letter-spacing:.22em;}
+
+.hck-nav{display:flex;gap:4px;margin-left:6px;flex-wrap:wrap;}
+.hck-nav a{
+  font-size:14.5px;font-weight:600;color:var(--hck-ink-soft);
+  padding:7px 11px;border-radius:9px;transition:.22s;
+}
+.hck-nav a:hover{background:var(--hck-cream-2);color:var(--hck-ink);}
+
+.hck-head-tools{display:flex;align-items:center;gap:10px;margin-left:auto;}
+.hck-search{
+  position:relative;display:flex;align-items:center;
+  background:var(--hck-white);
+  border:1.5px solid var(--hck-line);
+  border-radius:12px;
+  padding:6px 8px 6px 12px;
+  transition:.22s;
+}
+.hck-search:focus-within{border-color:var(--hck-amber);box-shadow:0 0 0 3px rgba(245,179,1,.18);}
+.hck-search input{
+  border:none;outline:none;background:transparent;
+  font-family:inherit;font-size:14px;width:168px;color:var(--hck-ink);
+}
+.hck-search input::placeholder{color:#A99F8C;}
+.hck-search button{
+  background:var(--hck-ink);color:var(--hck-amber);
+  border-radius:8px;padding:5px 11px;font-size:13px;font-weight:700;
+}
+.hck-search button:hover{background:#000;}
+.hck-search-tip{
+  position:absolute;top:calc(100% + 8px);left:0;right:0;
+  background:var(--hck-white);border:1px solid var(--hck-line);
+  border-radius:12px;box-shadow:var(--hck-shadow);
+  padding:8px;font-size:13px;display:none;z-index:50;
+}
+.hck-search-tip.show{display:block;}
+.hck-search-tip p{padding:5px 8px;border-radius:7px;color:var(--hck-ink-soft);}
+.hck-search-tip p b{color:var(--hck-amber-deep);}
+.hck-search-tip .hck-tip-empty{color:#B4513A;}
+
+.hck-btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:7px;
+  font-weight:800;font-size:14.5px;
+  padding:10px 20px;border-radius:12px;transition:.22s;
+  border:1.5px solid transparent;
+  white-space:nowrap;
+}
+.hck-btn-solid{background:var(--hck-ink);color:var(--hck-cream);}
+.hck-btn-solid:hover{background:#000;transform:translateY(-1px);}
+.hck-btn-amber{background:var(--hck-amber);color:var(--hck-ink);box-shadow:0 6px 18px rgba(245,179,1,.4);}
+.hck-btn-amber:hover{background:#FFC42A;transform:translateY(-1px);}
+.hck-btn-ghost{border-color:var(--hck-ink);color:var(--hck-ink);}
+.hck-btn-ghost:hover{background:var(--hck-ink);color:var(--hck-cream);}
+.hck-btn-sm{padding:7px 14px;font-size:13px;border-radius:10px;}
+
+.hck-burger{
+  display:none;width:42px;height:42px;border-radius:11px;
+  border:1.5px solid var(--hck-line);background:var(--hck-white);
+  flex-direction:column;justify-content:center;align-items:center;gap:5px;
+}
+.hck-burger span{width:20px;height:2.2px;background:var(--hck-ink);border-radius:2px;transition:.25s;}
+.hck-burger.open span:nth-child(1){transform:translateY(7.2px) rotate(45deg);}
+.hck-burger.open span:nth-child(2){opacity:0;}
+.hck-burger.open span:nth-child(3){transform:translateY(-7.2px) rotate(-45deg);}
+
+/* ============ 首屏 ============ */
+.hck-hero{padding:54px 0 46px;position:relative;overflow:hidden;}
+.hck-hero::before{
+  content:"";position:absolute;right:-160px;top:-120px;
+  width:520px;height:520px;border-radius:50%;
+  background:radial-gradient(circle,rgba(245,179,1,.22),transparent 68%);
+  pointer-events:none;
+}
+.hck-hero-grid{
+  display:grid;grid-template-columns:5fr 5fr;gap:44px;align-items:center;
+  position:relative;
+}
+.hck-hero-kicker{
+  display:inline-flex;align-items:center;gap:9px;
+  background:var(--hck-white);border:1.5px solid var(--hck-line);
+  border-radius:999px;padding:6px 15px;font-size:13px;font-weight:700;color:var(--hck-ink-soft);
+  margin-bottom:20px;
+}
+.hck-hero-kicker i{
+  width:8px;height:8px;border-radius:50%;background:var(--hck-amber);
+  box-shadow:0 0 0 4px rgba(245,179,1,.22);display:inline-block;
+}
+.hck-hero h1{
+  font-size:clamp(38px,4.6vw,60px);
+  line-height:1.12;letter-spacing:-.01em;font-weight:900;
+  margin-bottom:8px;
+}
+.hck-hero h1 em{
+  font-style:normal;color:var(--hck-amber-deep);
+  position:relative;white-space:nowrap;
+}
+.hck-hero-sub{
+  font-size:16px;color:var(--hck-ink-soft);font-weight:600;
+  letter-spacing:.03em;margin-bottom:18px;
+}
+.hck-hero-lead{
+  font-size:15.5px;color:var(--hck-ink-soft);line-height:1.9;
+  margin-bottom:22px;max-width:44em;
+}
+.hck-hero-lead b{color:var(--hck-ink);}
+.hck-hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:26px;}
+.hck-hero-stats{
+  display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:14px;border-top:1.5px dashed var(--hck-line);padding-top:20px;
+}
+.hck-stat-num{font-size:26px;font-weight:900;letter-spacing:-.01em;}
+.hck-stat-num span{font-size:14px;font-weight:800;color:var(--hck-amber-deep);margin-left:2px;}
+.hck-stat-label{font-size:12.5px;color:var(--hck-ink-soft);font-weight:600;}
+
+.hck-hero-visual{position:relative;}
+.hck-hero-frame{
+  border-radius:24px;overflow:hidden;
+  box-shadow:0 24px 60px rgba(35,31,32,.20);
+  border:1px solid rgba(35,31,32,.06);
+  background:#231F20;
+}
+.hck-hero-frame svg{width:100%;height:auto;display:block;}
+.hck-hero-tag{
+  position:absolute;left:-16px;bottom:24px;
+  background:var(--hck-white);border:1.5px solid var(--hck-line);
+  border-radius:14px;padding:11px 16px;box-shadow:var(--hck-shadow);
+  display:flex;align-items:center;gap:10px;font-size:13px;font-weight:700;
+}
+.hck-hero-tag .dot{
+  width:9px;height:9px;border-radius:50%;background:#E24B2A;
+  animation:hck-pulse 1.6s infinite;
+}
+@keyframes hck-pulse{0%,100%{opacity:1}50%{opacity:.25}}
+
+/* ============ 通用区块 ============ */
+.hck-section{padding:56px 0;}
+.hck-section-alt{background:var(--hck-white);border-top:1px solid var(--hck-line);border-bottom:1px solid var(--hck-line);}
+.hck-sec-head{margin-bottom:30px;max-width:62em;}
+.hck-sec-eyebrow{
+  display:inline-block;font-size:12.5px;font-weight:900;letter-spacing:.2em;
+  color:var(--hck-amber-deep);text-transform:uppercase;margin-bottom:9px;
+}
+.hck-sec-head h2{
+  font-size:clamp(25px,2.9vw,34px);font-weight:900;line-height:1.25;letter-spacing:-.01em;
+  margin-bottom:10px;
+}
+.hck-sec-head p{font-size:15px;color:var(--hck-ink-soft);line-height:1.85;}
+
+/* ============ 焦点 + 视频条目 ============ */
+.hck-focus-grid{display:grid;grid-template-columns:1.15fr 1fr;gap:28px;align-items:start;}
+.hck-focus-card{
+  background:var(--hck-white);border:1.5px solid var(--hck-line);
+  border-radius:var(--hck-radius);overflow:hidden;
+  box-shadow:var(--hck-shadow);transition:.28s;
+}
+.hck-focus-card:hover{transform:translateY(-4px);box-shadow:0 18px 44px rgba(35,31,32,.15);}
+.hck-focus-cover{position:relative;aspect-ratio:16/9;background:#231F20;overflow:hidden;}
+.hck-focus-cover svg{width:100%;height:100%;display:block;}
+.hck-play{
+  position:absolute;right:14px;bottom:14px;
+  width:46px;height:46px;border-radius:50%;
+  background:rgba(245,179,1,.95);
+  display:grid;place-items:center;color:#231F20;
+  box-shadow:0 6px 18px rgba(0,0,0,.35);
+  transition:.22s;
+}
+.hck-play:hover{transform:scale(1.1);background:#FFC42A;}
+.hck-focus-body{padding:20px 22px 22px;}
+.hck-tags{display:flex;gap:7px;flex-wrap:wrap;margin-bottom:10px;}
+.hck-tag{
+  font-size:11.5px;font-weight:800;letter-spacing:.04em;
+  background:var(--hck-cream-2);color:var(--hck-amber-deep);
+  padding:3px 10px;border-radius:999px;
+}
+.hck-focus-body h3{font-size:20px;font-weight:900;line-height:1.45;margin-bottom:8px;}
+.hck-focus-body .hck-desc{font-size:14px;color:var(--hck-ink-soft);line-height:1.8;margin-bottom:14px;}
+.hck-meta{display:flex;align-items:center;gap:12px;flex-wrap:wrap;font-size:12.5px;color:var(--hck-ink-soft);font-weight:600;}
+.hck-meta b{color:var(--hck-ink);}
+.hck-actions{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap;align-items:center;}
+.hck-act{
+  display:inline-flex;align-items:center;gap:5px;
+  font-size:12.5px;font-weight:700;
+  padding:6px 11px;border-radius:9px;
+  border:1.5px solid var(--hck-line);background:var(--hck-cream);
+  transition:.2s;
+}
+.hck-act:hover{border-color:var(--hck-amber);background:var(--hck-white);}
+.hck-act.on{background:var(--hck-amber);border-color:var(--hck-amber);color:var(--hck-ink);}
+.hck-act svg{width:14px;height:14px;}
+
+.hck-vlist{display:flex;flex-direction:column;gap:14px;}
+.hck-vitem{
+  display:grid;grid-template-columns:64px 1fr;gap:14px;
+  background:var(--hck-white);border:1.5px solid var(--hck-line);
+  border-radius:14px;padding:14px 16px;transition:.24s;align-items:start;
+}
+.hck-vitem:hover{border-color:var(--hck-amber);transform:translateX(3px);}
+.hck-vnum{
+  width:64px;height:64px;border-radius:12px;
+  display:grid;place-items:center;
+  background:linear-gradient(140deg,#231F20,#4A3B22);
+  color:var(--hck-amber);font-weight:900;font-size:21px;
+  letter-spacing:-.02em;flex-shrink:0;
+}
+.hck-vitem:nth-child(2) .hck-vnum{background:linear-gradient(140deg,#B8860B,#E8C46A);color:#231F20;}
+.hck-vitem:nth-child(3) .hck-vnum{background:linear-gradient(140deg,#3B2F2F,#6B5548);color:#FFD766;}
+.hck-vitem h3{font-size:15.5px;font-weight:800;line-height:1.5;margin-bottom:5px;}
+.hck-vitem .hck-vsum{font-size:13px;color:var(--hck-ink-soft);line-height:1.7;margin-bottom:8px;}
+.hck-vitem .hck-meta{font-size:11.5px;}
+
+/* ============ 关键词深度解析 ============ */
+.hck-essay{
+  background:var(--hck-white);
+  border:1.5px solid var(--hck-line);
+  border-radius:22px;
+  padding:38px clamp(22px,4vw,52px);
+  box-shadow:var(--hck-shadow);
+}
+.hck-essay h2{font-size:clamp(24px,2.7vw,32px);font-weight:900;margin-bottom:8px;line-height:1.3;}
+.hck-essay .hck-essay-lead{
+  font-size:15px;color:var(--hck-ink-soft);line-height:1.9;
+  padding-bottom:20px;margin-bottom:24px;border-bottom:1.5px dashed var(--hck-line);
+}
+.hck-essay h3{
+  font-size:18.5px;font-weight:900;margin:26px 0 11px;
+  padding-left:13px;border-left:4px solid var(--hck-amber);line-height:1.4;
+}
+.hck-essay p{font-size:15px;color:#433B36;line-height:1.95;margin-bottom:13px;}
+.hck-essay p b{color:var(--hck-ink);font-weight:800;}
+.hck-essay .hck-pullquote{
+  margin:22px 0;padding:18px 22px;border-radius:14px;
+  background:linear-gradient(120deg,#FFF7E0,#FBF0CE);
+  border-left:4px solid var(--hck-amber-deep);
+  font-size:15px;font-weight:700;color:#5C4A1E;line-height:1.85;
+}
+.hck-essay-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:18px;}
+.hck-essay-mini{
+  background:var(--hck-cream);border:1.5px solid var(--hck-line);
+  border-radius:14px;padding:16px 18px;
+}
+.hck-essay-mini strong{display:block;font-size:14px;font-weight:900;margin-bottom:6px;color:var(--hck-amber-deep);}
+.hck-essay-mini span{font-size:13.5px;color:var(--hck-ink-soft);line-height:1.8;}
+
+/* ============ 专题企划 ============ */
+.hck-topic-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;}
+.hck-topic{
+  background:var(--hck-white);border:1.5px solid var(--hck-line);
+  border-radius:var(--hck-radius);overflow:hidden;transition:.26s;
+  display:flex;flex-direction:column;
+}
+.hck-topic:hover{transform:translateY(-5px);box-shadow:0 18px 40px rgba(35,31,32,.13);}
+.hck-topic-cover{aspect-ratio:16/9;overflow:hidden;background:#231F20;}
+.hck-topic-cover svg{width:100%;height:100%;display:block;}
+.hck-topic-body{padding:16px 18px 18px;display:flex;flex-direction:column;flex:1;}
+.hck-topic-status{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:11.5px;font-weight:800;color:#1F7A3D;
+  background:#E7F6EC;border-radius:999px;padding:3px 10px;
+  margin-bottom:9px;width:fit-content;
+}
+.hck-topic-status.paused{color:#9A5B10;background:#FDF0D8;}
+.hck-topic h3{font-size:17px;font-weight:900;line-height:1.45;margin-bottom:7px;}
+.hck-topic .hck-topic-desc{font-size:13.5px;color:var(--hck-ink-soft);line-height:1.78;margin-bottom:12px;}
+.hck-topic-items{border-top:1px dashed var(--hck-line);padding-top:11px;margin-top:auto;display:flex;flex-direction:column;gap:7px;}
+.hck-topic-items li{
+  font-size:13px;color:#4E453F;line-height:1.6;
+  padding-left:15px;position:relative;
+}
+.hck-topic-items li::before{
+  content:"";position:absolute;left:0;top:8px;
+  width:6px;height:6px;border-radius:2px;background:var(--hck-amber);
+}
+
+/* ============ 作者矩阵 ============ */
+.hck-author-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;}
+.hck-author{
+  display:grid;grid-template-columns:72px 1fr;gap:16px;
+  background:var(--hck-white);border:1.5px solid var(--hck-line);
+  border-radius:16px;padding:18px;transition:.24s;align-items:start;
+}
+.hck-author:hover{border-color:var(--hck-amber);box-shadow:0 10px 26px rgba(35,31,32,.10);}
+.hck-avatar{
+  width:72px;height:72px;border-radius:50%;overflow:hidden;flex-shrink:0;
+  display:grid;place-items:center;font-weight:900;font-size:25px;
+  color:#231F20;letter-spacing:-.02em;
+  box-shadow:0 5px 14px rgba(35,31,32,.15);
+}
+.hck-avatar.a1{background:linear-gradient(140deg,#F5B301,#FFD766);}
+.hck-avatar.a2{background:linear-gradient(140deg,#8FC3A5,#D4E9DC);}
+.hck-avatar.a3{background:linear-gradient(140deg,#7FA6C9,#CBE0F0);color:#183046;}
+.hck-avatar.a4{background:linear-gradient(140deg,#D98C6A,#F3D2C2);}
+.hck-avatar.a5{background:linear-gradient(140deg,#A99BD1,#DDD6F0);}
+.hck-author h3{font-size:16.5px;font-weight:900;margin-bottom:3px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.hck-author h3 .hck-role{
+  font-size:11px;font-weight:800;background:var(--hck-cream-2);color:var(--hck-amber-deep);
+  padding:2px 8px;border-radius:999px;
+}
+.hck-author .hck-field{font-size:12.5px;font-weight:700;color:var(--hck-amber-deep);margin-bottom:7px;}
+.hck-author .hck-bio{font-size:13.5px;color:var(--hck-ink-soft);line-height:1.8;margin-bottom:9px;}
+.hck-author .hck-nums{display:flex;gap:16px;font-size:12.5px;color:var(--hck-ink-soft);font-weight:600;}
+.hck-author .hck-nums b{color:var(--hck-ink);font-weight:900;}
+.hck-author-more{margin-top:9px;}
+
+/* ============ 评论 ============ */
+.hck-comments{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+.hck-comment{
+  background:var(--hck-white);border:1.5px solid var(--hck-line);
+  border-radius:14px;padding:16px 18px;transition:.22s;
+}
+.hck-comment:hover{border-color:var(--hck-amber);}
+.hck-comment-top{display:flex;align-items:center;gap:10px;margin-bottom:9px;}
+.hck-cavatar{
+  width:34px;height:34px;border-radius:50%;flex-shrink:0;
+  display:grid;place-items:center;font-size:13px;font-weight:900;color:#231F20;
+}
+.hck-comment-top .hck-cname{font-size:13.5px;font-weight:800;}
+.hck-comment-top .hck-cmeta{font-size:11.5px;color:#98907F;font-weight:600;}
+.hck-comment p{font-size:13.5px;line-height:1.82;color:#4A4243;}
+.hck-comment .hck-cstar{color:var(--hck-amber-deep);font-size:12px;margin-top:8px;letter-spacing:.1em;}
+.hck-cform{
+  grid-column:1/-1;background:linear-gradient(120deg,#FFF7E0,#FBF0CE);
+  border:1.5px dashed var(--hck-amber-deep);border-radius:14px;padding:18px;
+  display:flex;gap:12px;flex-wrap:wrap;align-items:center;
+}
+.hck-cform input{
+  flex:1 1 240px;min-width:0;padding:11px 14px;border-radius:11px;
+  border:1.5px solid var(--hck-line);background:var(--hck-white);
+  font-family:inherit;font-size:14px;outline:none;
+}
+.hck-cform input:focus{border-color:var(--hck-amber);}
+.hck-cform .hck-cform-hint{font-size:12.5px;color:#7A6633;font-weight:700;flex:1 1 100%;}
+
+/* ============ 企业动态 + 合作 + FAQ ============ */
+.hck-tri{display:grid;grid-template-columns:1.05fr .95fr;gap:26px;align-items:start;}
+.hck-news{display:flex;flex-direction:column;gap:12px;}
+.hck-news-item{
+  display:grid;grid-template-columns:92px 1fr;gap:14px;align-items:start;
+  background:var(--hck-white);border:1.5px solid var(--hck-line);
+  border-radius:13px;padding:14px 16px;transition:.22s;
+}
+.hck-news-item:hover{border-color:var(--hck-amber);}
+.hck-news-date{
+  font-size:12px;font-weight:800;color:var(--hck-amber-deep);
+  background:var(--hck-cream-2);border-radius:8px;padding:6px 8px;text-align:center;line-height:1.5;
+}
+.hck-news-item h3{font-size:14.5px;font-weight:800;line-height:1.5;margin-bottom:4px;}
+.hck-news-item p{font-size:12.5px;color:var(--hck-ink-soft);line-height:1.7;}
+
+.hck-faq{display:flex;flex-direction:column;gap:10px;}
+.hck-faq details{
+  background:var(--hck-white);border:1.5px solid var(--hck-line);
+  border-radius:13px;overflow:hidden;transition:.22s;
+}
+.hck-faq details[open]{border-color:var(--hck-amber);box-shadow:0 8px 20px rgba(35,31,32,.08);}
+.hck-faq summary{
+  list-style:none;cursor:pointer;padding:14px 18px;
+  font-size:14.5px;font-weight:800;display:flex;align-items:center;justify-content:space-between;gap:12px;
+}
+.hck-faq summary::-webkit-details-marker{display:none;}
+.hck-faq summary::after{
+  content:"+";font-size:20px;font-weight:400;color:var(--hck-amber-deep);
+  line-height:1;transition:.2s;flex-shrink:0;
+}
+.hck-faq details[open] summary::after{content:"−";}
+.hck-faq .hck-faq-body{padding:0 18px 15px;font-size:13.5px;color:var(--hck-ink-soft);line-height:1.85;}
+
+.hck-partners{display:flex;gap:12px;flex-wrap:wrap;}
+.hck-partner{
+  flex:1 1 130px;background:var(--hck-white);border:1.5px solid var(--hck-line);
+  border-radius:13px;padding:16px 12px;text-align:center;transition:.22s;
+}
+.hck-partner:hover{border-color:var(--hck-amber);transform:translateY(-3px);}
+.hck-partner .hck-pmark{
+  width:38px;height:38px;border-radius:11px;margin:0 auto 9px;
+  display:grid;place-items:center;font-weight:900;font-size:16px;color:#231F20;
+}
+.hck-partner strong{display:block;font-size:13px;font-weight:800;line-height:1.4;}
+.hck-partner span{font-size:11.5px;color:#98907F;}
+
+/* ============ 投稿 CTA ============ */
+.hck-cta{
+  background:linear-gradient(118deg,#231F20 0%,#3B3231 52%,#5A4620 100%);
+  color:var(--hck-cream);
+  border-radius:24px;
+  padding:clamp(30px,5vw,54px);
+  display:grid;grid-template-columns:1.3fr .7fr;gap:28px;align-items:center;
+  position:relative;overflow:hidden;
+}
+.hck-cta::after{
+  content:"";position:absolute;right:-90px;bottom:-110px;
+  width:320px;height:320px;border-radius:50%;
+  background:radial-gradient(circle,rgba(245,179,1,.30),transparent 70%);
+}
+.hck-cta h2{font-size:clamp(24px,3.2vw,34px);font-weight:900;line-height:1.3;margin-bottom:12px;position:relative;}
+.hck-cta p{font-size:14.5px;line-height:1.9;color:#E3DAC6;max-width:44em;position:relative;}
+.hck-cta-actions{display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-end;position:relative;}
+
+/* ============ 页脚 ============ */
+.hck-footer{background:#1B1817;color:#C8BFAC;padding:52px 0 26px;margin-top:56px;}
+.hck-footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.1fr;gap:30px;margin-bottom:34px;}
+.hck-footer h3{font-size:14px;font-weight:900;color:var(--hck-cream);margin-bottom:14px;letter-spacing:.04em;}
+.hck-footer p, .hck-footer li{font-size:13px;line-height:1.9;}
+.hck-footer a:hover{color:var(--hck-amber);}
+.hck-footer ul{display:flex;flex-direction:column;gap:8px;}
+.hck-footer-brand{display:flex;align-items:center;gap:10px;margin-bottom:13px;}
+.hck-footer-brand .hck-brand-mark{width:38px;height:38px;border-radius:11px;}
+.hck-footer-brand strong{font-size:17px;color:var(--hck-cream);font-weight:900;letter-spacing:.04em;}
+.hck-footer-bottom{
+  border-top:1px solid #332E29;padding-top:20px;
+  display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;
+  font-size:12.5px;color:#8C8375;
+}
+
+/* ============ 弹窗 / Toast / 返回顶部 ============ */
+.hck-modal-mask{
+  position:fixed;inset:0;background:rgba(20,17,16,.6);
+  backdrop-filter:blur(4px);z-index:300;
+  display:none;align-items:center;justify-content:center;padding:20px;
+}
+.hck-modal-mask.show{display:flex;}
+.hck-modal{
+  background:var(--hck-white);border-radius:20px;
+  width:min(540px,100%);max-height:86vh;overflow:auto;
+  padding:26px 26px 22px;box-shadow:0 30px 70px rgba(0,0,0,.35);
+  animation:hck-pop .24s ease;
+}
+@keyframes hck-pop{from{transform:translateY(14px) scale(.98);opacity:0}to{transform:none;opacity:1}}
+.hck-modal-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin-bottom:14px;}
+.hck-modal-head h3{font-size:20px;font-weight:900;line-height:1.4;}
+.hck-modal-close{
+  width:34px;height:34px;border-radius:10px;background:var(--hck-cream-2);
+  display:grid;place-items:center;font-size:19px;flex-shrink:0;transition:.2s;
+}
+.hck-modal-close:hover{background:var(--hck-amber);}
+.hck-modal p{font-size:14px;color:var(--hck-ink-soft);line-height:1.85;margin-bottom:10px;}
+.hck-modal .hck-modal-tags{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0;}
+.hck-modal .hck-modal-tags span{
+  font-size:12px;font-weight:800;background:var(--hck-cream-2);
+  color:var(--hck-amber-deep);padding:4px 11px;border-radius:999px;
+}
+.hck-share-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px;}
+.hck-share-row button{
+  flex:1 1 120px;padding:11px;border-radius:11px;
+  background:var(--hck-cream);border:1.5px solid var(--hck-line);
+  font-size:13.5px;font-weight:800;transition:.2s;
+}
+.hck-share-row button:hover{background:var(--hck-amber);border-color:var(--hck-amber);}
+.hck-toast{
+  position:fixed;left:50%;bottom:34px;transform:translate(-50%,22px);
+  background:#231F20;color:var(--hck-cream);
+  padding:12px 22px;border-radius:12px;font-size:13.5px;font-weight:700;
+  z-index:400;opacity:0;pointer-events:none;transition:.3s;
+  box-shadow:0 12px 30px rgba(0,0,0,.3);border:1px solid rgba(245,179,1,.4);
+}
+.hck-toast.show{opacity:1;transform:translate(-50%,0);}
+
+.hck-top-btn{
+  position:fixed;right:22px;bottom:24px;width:48px;height:48px;border-radius:14px;
+  background:var(--hck-ink);color:var(--hck-amber);display:grid;place-items:center;
+  box-shadow:0 10px 26px rgba(0,0,0,.3);z-index:200;
+  opacity:0;pointer-events:none;transition:.28s;font-size:17px;
+}
+.hck-top-btn.show{opacity:1;pointer-events:auto;}
+.hck-top-btn:hover{background:var(--hck-amber);color:var(--hck-ink);}
+
+/* ============ 响应式 ============ */
+@media (max-width:1024px){
+  .hck-hero-grid{grid-template-columns:1fr;gap:34px;}
+  .hck-focus-grid{grid-template-columns:1fr;}
+  .hck-topic-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .hck-footer-grid{grid-template-columns:1fr 1fr;}
+  .hck-cta{grid-template-columns:1fr;}
+  .hck-cta-actions{justify-content:flex-start;}
+  .hck-tri{grid-template-columns:1fr;}
+}
+@media (max-width:860px){
+  .hck-nav{
+    display:none;position:absolute;left:0;right:0;top:100%;
+    background:var(--hck-white);border-bottom:1.5px solid var(--hck-line);
+    padding:12px 20px 18px;flex-direction:column;gap:4px;
+    box-shadow:0 18px 30px rgba(35,31,32,.13);
+  }
+  .hck-nav.open{display:flex;}
+  .hck-nav a{padding:11px 12px;font-size:15px;}
+  .hck-header-inner{flex-wrap:wrap;position:relative;}
+  .hck-burger{display:flex;order:2;}
+  .hck-head-tools{order:3;margin-left:0;width:100%;padding-bottom:10px;}
+  .hck-search{flex:1;}
+  .hck-search input{width:100%;}
+  .hck-header{top:36px;}
+  .hck-search .hck-btn-sm{display:none;}
+  .hck-author-grid,.hck-comments,.hck-essay-grid{grid-template-columns:1fr;}
+  .hck-topic-grid{grid-template-columns:1fr;}
+  .hck-hero-stats{grid-template-columns:1fr 1fr;gap:16px;}
+  .hck-hero-tag{left:8px;bottom:12px;padding:8px 12px;font-size:12px;}
+  .hck-topbar-nav{display:none;}
+}
+@media (max-width:560px){
+  .hck-wrap{width:calc(100% - 28px);}
+  .hck-section{padding:40px 0;}
+  .hck-hero{padding:34px 0 30px;}
+  .hck-hero-actions .hck-btn{flex:1 1 100%;}
+  .hck-vitem{grid-template-columns:52px 1fr;gap:11px;padding:12px 13px;}
+  .hck-vnum{width:52px;height:52px;font-size:17px;border-radius:10px;}
+  .hck-author{grid-template-columns:60px 1fr;gap:13px;padding:15px;}
+  .hck-avatar{width:60px;height:60px;font-size:21px;}
+  .hck-essay{padding:24px 18px;}
+  .hck-footer-grid{grid-template-columns:1fr;}
+  .hck-news-item{grid-template-columns:1fr;gap:8px;}
+  .hck-news-date{padding:4px 8px;width:fit-content;}
+  .hck-topbar-inner{padding:8px 0;gap:9px;}
+  .hck-topbar-badge{font-size:11px;padding:2px 8px;}
+  .hck-topbar-track{font-size:12.5px;}
+}
+</style>
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+</head>
+<body>
+
+<!-- ========== 公告条 + 页头（吸顶） ========== -->
+<div class="hck-topbar">
+  <div class="hck-wrap hck-topbar-inner">
+    <span class="hck-topbar-badge">官方发布</span>
+    <span class="hck-topbar-track">黄仓库网站 11 月新增《智慧仓配全流程实录》系列 6 集、开放「年度仓储影像挑战」投稿通道，并上线高清下载与创作者报名页。</span>
+    <a class="hck-topbar-link" href="#hck-news">查看企业动态 →</a>
+    <div class="hck-topbar-nav">
+      <a href="#hck-upload">投稿</a>
+      <a href="#hck-faq">帮助</a>
+    </div>
+  </div>
+</div>
+
+<header class="hck-header">
+  <div class="hck-wrap hck-header-inner">
+    <a class="hck-brand" href="#hck-top">
+      <span class="hck-brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M3 9l9-5 9 5v11H3V9z" fill="#231F20"/><rect x="9" y="13" width="6" height="7" fill="#F5B301"/></svg>
+      </span>
+      <span class="hck-brand-text">
+        <span class="hck-brand-name">黄仓库网站</span>
+        <span class="hck-brand-sub">OFFICIAL VIDEO HUB</span>
+      </span>
+    </a>
+    <nav class="hck-nav" id="hck-nav" aria-label="主导航">
+      <a href="#hck-focus">焦点内容</a>
+      <a href="#hck-essay">深度解析</a>
+      <a href="#hck-topics">专题企划</a>
+      <a href="#hck-authors">创作者</a>
+      <a href="#hck-comments">口碑</a>
+      <a href="#hck-news">企业动态</a>
+      <a href="#hck-faq">常见问答</a>
+    </nav>
+    <div class="hck-head-tools">
+      <div class="hck-search">
+        <input type="text" id="hck-search-input" placeholder="搜索仓储 / 供应链 / 创作者" aria-label="站内搜索">
+        <button type="button" id="hck-search-btn">搜索</button>
+        <div class="hck-search-tip" id="hck-search-tip"></div>
+      </div>
+      <a class="hck-btn hck-btn-amber hck-btn-sm" href="#hck-upload">投稿</a>
+      <button class="hck-burger" id="hck-burger" aria-label="展开菜单" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="hck-top">
+
+  <!-- ========== 首屏 ========== -->
+  <section class="hck-hero" aria-labelledby="hck-hero-title">
+    <div class="hck-wrap hck-hero-grid">
+      <div>
+        <div class="hck-hero-kicker"><i></i>黄仓库网站 · 品牌官方网站</div>
+        <h1 id="hck-hero-title">黄仓库网站</h1>
+        <p class="hck-hero-sub">仓储物流与供应链领域的原创高清视频内容平台</p>
+        <p class="hck-hero-lead">
+          作为持续运营的<b>企业级视频品牌官网</b>，黄仓库网站深耕仓储、仓配一体、供应链数字化等垂直领域，为行业创作者与品牌方搭建<b>高品质内容生态</b>。平台以原创、正版、高清为底线，用真实影像记录每一个仓库现场、每一次流程优化与每一位一线从业者的日常，让专业的仓储知识被更多人看见。
+        </p>
+        <div class="hck-hero-actions">
+          <a class="hck-btn hck-btn-solid" href="#hck-focus">观看焦点内容</a>
+          <a class="hck-btn hck-btn-ghost" href="#hck-authors">认识创作者</a>
+          <button class="hck-btn hck-btn-amber" type="button" data-hck-modal="upload">我要投稿</button>
+        </div>
+        <div class="hck-hero-stats">
+          <div>
+            <div class="hck-stat-num" data-hck-count="1860">0<span>+</span></div>
+            <div class="hck-stat-label">原创高清视频作品</div>
+          </div>
+          <div>
+            <div class="hck-stat-num" data-hck-count="312">0<span>位</span></div>
+            <div class="hck-stat-label">在册签约创作者</div>
+          </div>
+          <div>
+            <div class="hck-stat-num" data-hck-count="92">0<span>%</span></div>
+            <div class="hck-stat-label">用户好评口碑占比</div>
+          </div>
+        </div>
+      </div>
+      <div class="hck-hero-visual">
+        <div class="hck-hero-frame">
+          <svg viewBox="0 0 640 400" role="img" aria-label="黄仓库网站首屏主视觉：夜色中的现代化立体仓库与穿梭的自动搬运车">
+            <defs>
+              <linearGradient id="hckSky" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#1B1817"/><stop offset="55%" stop-color="#3B3231"/><stop offset="100%" stop-color="#6B5548"/>
+              </linearGradient>
+              <linearGradient id="hckFloor" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#2A2423"/><stop offset="100%" stop-color="#151212"/>
+              </linearGradient>
+              <linearGradient id="hckGold" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0" stop-color="#B8860B"/><stop offset="100%" stop-color="#F5B301"/>
+              </linearGradient>
+            </defs>
+            <rect width="640" height="400" fill="url(#hckSky)"/>
+            <circle cx="512" cy="86" r="52" fill="#F5B301" opacity="0.16"/>
+            <circle cx="512" cy="86" r="30" fill="#F5B301" opacity="0.85"/>
+            <g opacity="0.28" fill="#F5B301">
+              <circle cx="120" cy="58" r="2"/><circle cx="210" cy="36" r="1.6"/><circle cx="300" cy="66" r="1.4"/>
+              <circle cx="388" cy="42" r="2"/><circle cx="96" cy="118" r="1.4"/><circle cx="580" cy="150" r="1.6"/>
+            </g>
+            <!-- 货架 -->
+            <g>
+              <rect x="46" y="150" width="150" height="150" rx="4" fill="#2E2726" stroke="#4A3B22" stroke-width="2"/>
+              <rect x="58" y="164" width="56" height="34" fill="url(#hckGold)" opacity="0.9"/>
+              <rect x="124" y="164" width="56" height="34" fill="#6B5548"/>
+              <rect x="58" y="210" width="56" height="34" fill="#6B5548"/>
+              <rect x="124" y="210" width="56" height="34" fill="url(#hckGold)" opacity="0.7"/>
+              <rect x="58" y="256" width="56" height="34" fill="#4A3B22"/>
+              <rect x="124" y="256" width="56" height="34" fill="#6B5548"/>
+            </g>
+            <g>
+              <rect x="214" y="118" width="150" height="182" rx="4" fill="#332B29" stroke="#5A4620" stroke-width="2"/>
+              <rect x="226" y="132" width="56" height="38" fill="#6B5548"/>
+              <rect x="292" y="132" width="56" height="38" fill="url(#hckGold)" opacity="0.85"/>
+              <rect x="226" y="182" width="56" height="38" fill="url(#hckGold)" opacity="0.65"/>
+              <rect x="292" y="182" width="56" height="38" fill="#4A3B22"/>
+              <rect x="226" y="232" width="56" height="38" fill="#6B5548"/>
+              <rect x="292" y="232" width="56" height="38" fill="url(#hckGold)" opacity="0.5"/>
+            </g>
+            <!-- 地面 -->
+            <path d="M0 300 L640 300 L640 400 L0 400 Z" fill="url(#hckFloor)"/>
+            <g stroke="#F5B301" stroke-width="2" opacity="0.35">
+              <line x1="0" y1="336" x2="640" y2="336"/>
+              <line x1="0" y1="372" x2="640" y2="372"/>
+            </g>
+            <!-- 自动搬运车 -->
+            <g>
+              <rect x="392" y="300" width="96" height="30" rx="8" fill="#F5B301"/>
+              <rect x="402" y="308" width="52" height="12" rx="4" fill="#231F20" opacity="0.65"/>
+              <circle cx="410" cy="334" r="8" fill="#231F20"/><circle cx="470" cy="334" r="8" fill="#231F20"/>
+              <rect x="404" y="272" width="72" height="28" rx="4" fill="#B8860B"/>
+              <rect x="412" y="280" width="26" height="12" fill="#F5B301" opacity="0.8"/>
+            </g>
+            <!-- 叉车 -->
+            <g>
+              <rect x="530" y="272" width="52" height="34" rx="5" fill="#3B3231" stroke="#F5B301" stroke-width="2"/>
+              <rect x="546" y="280" width="22" height="16" fill="#F5B301" opacity="0.7"/>
+              <circle cx="546" cy="310" r="9" fill="#231F20" stroke="#6B5548" stroke-width="2"/>
+              <circle cx="572" cy="310" r="9" fill="#231F20" stroke="#6B5548" stroke-width="2"/>
+              <line x1="590" y1="270" x2="590" y2="306" stroke="#F5B301" stroke-width="3"/>
+            </g>
+            <!-- 光线 -->
+            <g opacity="0.12" fill="#F5B301">
+              <polygon points="280,0 330,0 360,300 300,300"/>
+              <polygon points="470,0 510,0 520,300 470,300"/>
+            </g>
+          </svg>
+        </div>
+        <div class="hck-hero-tag"><span class="dot"></span>正在直播：华东智能仓双十一后复盘</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 焦点内容 + 视频条目 ========== -->
+  <section class="hck-section" id="hck-focus" aria-labelledby="hck-focus-title">
+    <div class="hck-wrap">
+      <div class="hck-sec-head">
+        <span class="hck-sec-eyebrow">Focus 焦点内容</span>
+        <h2 id="hck-focus-title">本周焦点 · 黄仓库网站精品内容推荐</h2>
+        <p>从入库验收、库内拣选到末端配送，黄仓库网站用高清影像拆解仓储运营的每一个关键环节。以下为本期重点推荐与热门视频流，均为平台原创正版内容。</p>
+      </div>
+
+      <div class="hck-focus-grid">
+        <!-- 重点大卡片 -->
+        <article class="hck-focus-card">
+          <div class="hck-focus-cover">
+            <svg viewBox="0 0 640 360" role="img" aria-label="重点视频封面：立体仓库高位货架通道与扫码拣选作业现场">
+              <defs>
+                <linearGradient id="hckFc1" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0" stop-color="#3B3231"/><stop offset="100%" stop-color="#1B1817"/>
+                </linearGradient>
+              </defs>
+              <rect width="640" height="360" fill="url(#hckFc1)"/>
+              <g stroke="#F5B301" stroke-width="2" opacity="0.55">
+                <line x1="60" y1="40" x2="230" y2="300"/>
+                <line x1="580" y1="40" x2="410" y2="300"/>
+              </g>
+              <g>
+                <rect x="120" y="80" width="400" height="220" fill="none" stroke="#6B5548" stroke-width="3"/>
+                <g fill="#B8860B" opacity="0.85">
+                  <rect x="140" y="100" width="74" height="46"/><rect x="226" y="100" width="74" height="46"/>
+                  <rect x="312" y="100" width="74" height="46"/><rect x="398" y="100" width="74" height="46"/>
+                </g>
+                <g fill="#F5B301" opacity="0.9">
+                  <rect x="140" y="164" width="74" height="46"/><rect x="312" y="164" width="74" height="46"/>
+                </g>
+                <g fill="#6B5548">
+                  <rect x="226" y="164" width="74" height="46"/><rect x="398" y="164" width="74" height="46"/>
+                  <rect x="140" y="228" width="74" height="46"/><rect x="312" y="228" width="74" height="46"/>
+                </g>
+                <g fill="#B8860B" opacity="0.55">
+                  <rect x="226" y="228" width="74" height="46"/><rect x="398" y="228" width="74" height="46"/>
+                </g>
+              </g>
+              <g>
+                <circle cx="320" cy="296" r="20" fill="#F5B301"/>
+                <path d="M314 286 L332 296 L314 306 Z" fill="#1B1817"/>
+              </g>
+            </svg>
+            <button class="hck-play" type="button" data-hck-modal="play" data-title="智慧仓配全流程实录 第一集" aria-label="播放智慧仓配全流程实录第一集">
+              <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M8 5l12 7-12 7z"/></svg>
+            </button>
+          </div>
+          <div class="hck-focus-body">
+            <div class="hck-tags"><span class="hck-tag">仓储实录</span><span class="hck-tag">高清原创</span><span class="hck-tag">行业观察</span></div>
+            <h3>《智慧仓配全流程实录》第一集：从月台到高位货架的 11 分钟</h3>
+            <p class="hck-desc">黄仓库网站摄制组进入华东 4.6 万平方米立体仓，用 12 机位完整记录一次标准入库作业：月台卸货、扫码验收、上架定位、库存同步。片尾附赠一线主管的 5 条避坑经验，适合仓储新人对照学习。</p>
+            <div class="hck-meta">
+              <span>作者 <b>仓库老陈</b></span><span>·</span><span>播放 <b>28.6万</b></span><span>·</span><span>弹幕 <b>1,204</b></span>
+            </div>
+            <div class="hck-actions">
+              <button class="hck-act" type="button" data-hck-like><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 22V10l5-8 1 1-2 7h7l-2 12H7z"/></svg><span class="hck-like-num">3,281</span></button>
+              <button class="hck-act" type="button" data-hck-fav><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-8-5.4-8-11a4.5 4.5 0 018-2.8A4.5 4.5 0 0120 10c0 5.6-8 11-8 11z"/></svg>收藏</button>
+              <button class="hck-act" type="button" data-hck-share>分享</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- 视频条目列表 -->
+        <div class="hck-vlist">
+          <article class="hck-vitem">
+            <div class="hck-vnum">01</div>
+            <div>
+              <h3>拣选 1200 单/小时的秘密：电子标签墙与波次策略拆解</h3>
+              <p class="hck-vsum">用实测数据对比三种波次策略，给出中小仓可直接套用的排单模板。</p>
+              <div class="hck-meta"><span>作者 <b>林工讲仓配</b></span><span>12.4万播放</span><span>· 收藏 2,860</span></div>
+              <div class="hck-actions">
+                <button class="hck-act" type="button" data-hck-like><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 22V10l5-8 1 1-2 7h7l-2 12H7z"/></svg><span class="hck-like-num">1,196</span></button>
+                <button class="hck-act" type="button" data-hck-fav>收藏</button>
+              </div>
+            </div>
+          </article>
+          <article class="hck-vitem">
+            <div class="hck-vnum">02</div>
+            <div>
+              <h3>冷链仓库温区巡检：一支温度计的 24 小时</h3>
+              <p class="hck-vsum">跟随巡检员走完四个温区，理解冷链合规记录的真实工作量。</p>
+              <div class="hck-meta"><span>作者 <b>冷链阿May</b></span><span>9.8万播放</span><span>· 收藏 1,742</span></div>
+              <div class="hck-actions">
+                <button class="hck-act" type="button" data-hck-like><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 22V10l5-8 1 1-2 7h7l-2 12H7z"/></svg><span class="hck-like-num">842</span></button>
+                <button class="hck-act" type="button" data-hck-fav>收藏</button>
+              </div>
+            </div>
+          </article>
+          <article class="hck-vitem">
+            <div class="hck-vnum">03</div>
+            <div>
+              <h3>仓储安全十二讲：货架承重标识到底怎么看</h3>
+              <p class="hck-vsum">以三次货架事故复盘为线索，讲清承重标识、限载与日常点检要点。</p>
+              <div class="hck-meta"><span>作者 <b>安全员老周</b></span><span>15.2万播放</span><span>· 收藏 4,103</span></div>
+              <div class="hck-actions">
+                <button class="hck-act" type="button" data-hck-like><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 22V10l5-8 1 1-2 7h7l-2 12H7z"/></svg><span class="hck-like-num">2,077</span></button>
+                <button class="hck-act" type="button" data-hck-fav>收藏</button>
+              </div>
+            </div>
+          </article>
+          <article class="hck-vitem">
+            <div class="hck-vnum">04</div>
+            <div>
+              <h3>小仓也能上系统：8 万元预算的 WMS 选型与落地</h3>
+              <p class="hck-vsum">拆解预算表与实施排期，给出中小仓储企业数字化改造的可行路径。</p>
+              <div class="hck-meta"><span>作者 <b>数字化小赵</b></span><span>7.6万播放</span><span>· 收藏 1,528</span></div>
+              <div class="hck-actions">
+                <button class="hck-act" type="button" data-hck-like><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 22V10l5-8 1 1-2 7h7l-2 12H7z"/></svg><span class="hck-like-num">613</span></button>
+                <button class="hck-act" type="button" data-hck-fav>收藏</button>
+              </div>
+            </div>
+          </article>
+          <article class="hck-vitem">
+            <div class="hck-vnum">05</div>
+            <div>
+              <h3>仓库里的手作：用废旧木托盘做一张休息区长桌</h3>
+              <p class="hck-vsum">黄仓库网站生活企划，让仓库的边角料变成员工休息区的一部分。</p>
+              <div class="hck-meta"><span>作者 <b>木作小林</b></span><span>5.9万播放</span><span>· 收藏 986</span></div>
+              <div class="hck-actions">
+                <button class="hck-act" type="button" data-hck-like><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 22V10l5-8 1 1-2 7h7l-2 12H7z"/></svg><span class="hck-like-num">437</span></button>
+                <button class="hck-act" type="button" data-hck-fav>收藏</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 关键词深度解析 ========== -->
+  <section class="hck-section hck-section-alt" id="hck-essay" aria-labelledby="hck-essay-title">
+    <div class="hck-wrap">
+      <div class="hck-essay">
+        <span class="hck-sec-eyebrow">Deep Dive 关键词解析</span>
+        <h2 id="hck-essay-title">黄仓库网站：把仓库这件事，讲成一套可观看的知识体系</h2>
+        <p class="hck-essay-lead">很多人第一次听到「黄仓库网站」这个名字，直觉会以为它只是某个实体的仓库存货页面。事实上，它是一家以仓储与供应链为核心题材的原创视频内容平台，也是一个持续运营的行业品牌官网。这里不卖货，而是把仓库这门「看不见的手艺」拍成可看、可学、可复用的影像资料。</p>
+
+        <h3>一、为什么仓库需要被拍下来</h3>
+        <p>仓储是一个典型的高经验密度行业。一个熟练的拣选员知道哪条通道最顺、哪种波次最省步数、什么时段补货最不容易挤占月台；一个资深仓管能在三秒内判断托盘是否超限、堆码是否稳当。但这些判断长期依赖口传心授，教材讲不清，SOP 也往往只有条文而没有现场感。</p>
+        <p>黄仓库网站选择用影像解决这个问题。平台把入库验收、上架定位、盘点、拣选、复核、装车、退货处理等环节逐一拆成独立视频，每个环节控制在一个可看完的时长内，配以数据字幕与关键动作慢放。观众不需要先理解术语，只要跟着镜头走一遍通道，就知道这个岗位在做什么、难点在哪里。<b>这就是「黄仓库网站」四个字最朴素的含义：一个把仓库拍清楚的地方。</b></p>
+        <p>更重要的是，这类内容让行业外的人也能理解仓储的真实工作强度。过去仓配企业的招聘常常遇到一个困境：年轻人不知道仓库里到底什么样，自然也不会主动投简历。而一支拍得足够具体的岗位视频，抵得上一百句招聘文案。黄仓库网站因此成为不少企业招聘时的辅助材料，这也是它区别于泛娱乐短视频平台的地方。</p>
+
+        <div class="hck-pullquote">仓库不是背景，而是主角。当镜头愿意在货架通道里多停留三十秒，行业的知识就有了被传递的可能。</div>
+
+        <h3>二、内容生态如何组织：从单条视频到可检索的知识库</h3>
+        <p>黄仓库网站的内容并不是随意堆叠的。平台按「岗位线」「场景线」「系统线」三条线索进行分类：岗位线覆盖收货员、上架员、拣选员、复核员、叉车司机、仓管主管等角色；场景线覆盖常温仓、冷链仓、危化品仓、电商大促仓、跨境保税仓等形态；系统线覆盖 WMS、TMS、WCS、电子标签、AGV 等数字化工具。三条线交叉，就形成了一张可以不断填充的行业知识地图。</p>
+        <p>在实际运营中，平台会为每个主题维护一个持续更新的专题。例如「智慧仓配全流程实录」专题会按月补充新仓库的实际作业画面，「仓储安全十二讲」专题会在每次行业事故通报后更新解读。专题不是一次性发布的合集，而是<b>持续运营的内容容器</b>，用户收藏一个专题，相当于订阅了一门不断加课的课程。</p>
+        <p>为了让内容真正可被检索，平台鼓励创作者在标题与简介中使用具体词汇，而不是「干货满满」「必看」这类空泛表达。一个合格的标题应该让人一眼知道拍的是哪个仓库、哪个环节、解决了什么问题。这种看似苛刻的要求，实际提升了整个社区的内容质量，也让黄仓库网站的评价体系更接近工具型产品而非娱乐社区。</p>
+
+        <h3>三、创作者从哪来：一线从业者的第二职业</h3>
+        <p>黄仓库网站的创作者绝大多数来自行业一线。他们白天在仓库现场工作，晚上把手机架在纸箱上写脚本、剪片子。平台为这些创作者提供三方面支持：一是拍摄与剪辑培训，包括如何在光线不足的仓库里稳定拍摄、如何用手机完成字幕与配音；二是题材共创，平台编辑会与创作者一起拆解选题，避免重复拍摄同一套流程；三是版权与分成保障，所有上架内容都签署正版授权协议，播放与下载产生的收益按比例结算。</p>
+        <p>这套机制带来的直接结果是，平台上的内容带有很强的现场感。创作者知道货架第二层的箱子在梅雨季会返潮，知道夜间理货时最怕的是照明分区不足，知道退货区最容易被新人忽略。这些细节无法靠采访获得，只能靠长期蹲点。也正因如此，黄仓库网站的内容在被其他媒体引用时，常被标注为「行业一线影像资料」。</p>
+        <p>与此同时，平台也引入企业账号。仓配企业可以用官方账号发布自己的作业规范、招聘信息与练手视频，但平台对商业内容有明确标注要求，避免用户被软广误导。用户至上的原则在这里体现为一种平衡：既让企业获得表达空间，也保护观众的观看体验。</p>
+
+        <h3>四、行业领先不是口号，而是可核验的细节</h3>
+        <p>衡量一个垂直内容平台是否值得信赖，最终要看它的细节是否经得起核对。黄仓库网站在几个方面给自己设了硬标准：视频上架前必须完成事实核查，涉及承重、温度、消防等安全数据的内容须由两位从业者交叉确认；所有引用标准的画面必须标注标准编号；涉及具体企业的作业画面须取得书面授权；用户报错后须在 72 小时内回应并更正。这些流程并不轻巧，但它们构成了平台口碑的底层支撑。</p>
+        <p>平台还建立了行业观察栏目，定期整理仓储自动化设备的落地数据、区域仓租变化、旺季用工缺口等公开信息，供从业者参考。这些内容不追求流量，却常常是用户回访率最高的部分。原因很简单：在仓储这个务实行业里，能提供可核验数据的平台并不多。</p>
+        <p>回到最初的问题——黄仓库网站到底是什么？它是一家企业官网，是一个视频社区，也是一份持续生长的行业档案。它相信仓库值得被认真记录，相信一线经验值得被专业表达，也相信<真实>与<专业>本身就是最有力量的内容。只要还有人在货架间穿梭，这个平台就有继续拍下去的理由。</p>
+
+        <div class="hck-essay-grid">
+          <div class="hck-essay-mini"><strong>内容底线</strong><span>原创、正版、高清三审制，安全数据双人交叉核对，引用标准须标注编号。</span></div>
+          <div class="hck-essay-mini"><strong>社区机制</strong><span>专题按周更新，创作者共创选题，企业账号商业内容强制标注。</span></div>
+          <div class="hck-essay-mini"><strong>服务承诺</strong><span>用户报错 72 小时内回应更正，投稿 14 个工作日内给出审核结论。</span></div>
+          <div class="hck-essay-mini"><strong>长期方向</strong><span>建设可检索的仓储影像知识库，让一线经验成为公开、可复用的行业资产。</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 专题企划 ========== -->
+  <section class="hck-section" id="hck-topics" aria-labelledby="hck-topics-title">
+    <div class="hck-wrap">
+      <div class="hck-sec-head">
+        <span class="hck-sec-eyebrow">Series 专题企划</span>
+        <h2 id="hck-topics-title">持续更新中的专题 · 黄仓库网站原创企划</h2>
+        <p>专题是黄仓库网站组织内容的基本单位。每个专题由平台编辑与一线创作者共同策划，按周或按月补充新内容，用户可以收藏专题，跟进完整脉络。</p>
+      </div>
+      <div class="hck-topic-grid">
+        <article class="hck-topic">
+          <div class="hck-topic-cover">
+            <svg viewBox="0 0 480 270" role="img" aria-label="专题封面：智慧仓配全流程实录的自动化分拣线与数据看板">
+              <rect width="480" height="270" fill="#2A2423"/>
+              <g stroke="#F5B301" stroke-width="2" opacity="0.7" fill="none">
+                <path d="M30 200 L160 200 L200 150 L360 150 L400 110 L450 110"/>
+              </g>
+              <g fill="#B8860B">
+                <rect x="60" y="170" width="42" height="26" rx="3"/>
+                <rect x="118" y="170" width="42" height="26" rx="3"/>
+                <rect x="230" y="120" width="42" height="26" rx="3"/>
+                <rect x="290" y="120" width="42" height="26" rx="3"/>
+              </g>
+              <g fill="#F5B301">
+                <rect x="350" y="80" width="42" height="26" rx="3"/>
+                <rect x="404" y="80" width="42" height="26" rx="3" opacity="0.8"/>
+              </g>
+              <g fill="#6B5548"><rect x="30" y="40" width="140" height="8" rx="4"/><rect x="30" y="58" width="90" height="8" rx="4"/></g>
+              <circle cx="410" cy="210" r="26" fill="none" stroke="#F5B301" stroke-width="3" opacity="0.8"/>
+              <path d="M410 196 A14 14 0 0 1 424 210" stroke="#F5B301" stroke-width="4" fill="none"/>
+            </svg>
+          </div>
+          <div class="hck-topic-body">
+            <span class="hck-topic-status">● 每周更新</span>
+            <h3>智慧仓配全流程实录</h3>
+            <p class="hck-topic-desc">跟随镜头走完一座仓库的完整作业链，从月台到出库，每一集聚焦一个环节的关键动作与数据。</p>
+            <ul class="hck-topic-items">
+              <li>第 6 集：电子标签墙的日常维护清单</li>
+              <li>第 7 集：波次策略实测对比</li>
+              <li>第 8 集：夜间理货的照明与安全分区</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="hck-topic">
+          <div class="hck-topic-cover">
+            <svg viewBox="0 0 480 270" role="img" aria-label="专题封面：仓储安全十二讲的货架承重标识与巡检记录板">
+              <rect width="480" height="270" fill="#1F1B1A"/>
+              <g stroke="#6B5548" stroke-width="4" fill="none">
+                <rect x="60" y="50" width="360" height="170"/>
+                <line x1="60" y1="106" x2="420" y2="106"/>
+                <line x1="60" y1="162" x2="420" y2="162"/>
+                <line x1="180" y1="50" x2="180" y2="220"/>
+                <line x1="300" y1="50" x2="300" y2="220"/>
+              </g>
+              <g fill="#F5B301">
+                <rect x="90" y="66" width="60" height="24" rx="3"/>
+                <rect x="210" y="122" width="60" height="24" rx="3"/>
+                <rect x="330" y="178" width="60" height="24" rx="3"/>
+              </g>
+              <g fill="#B8860B" opacity="0.7">
+                <rect x="210" y="66" width="60" height="24" rx="3"/>
+                <rect x="330" y="122" width="60" height="24" rx="3"/>
+                <rect x="90" y="178" width="60" height="24" rx="3"/>
+              </g>
+              <circle cx="378" cy="214" r="18" fill="#F5B301" opacity="0.85"/>
+              <text x="378" y="220" font-size="18" font-weight="700" fill="#1F1B1A" text-anchor="middle">!</text>
+            </svg>
+          </div>
+          <div class="hck-topic-body">
+            <span class="hck-topic-status">● 每月更新</span>
+            <h3>仓储安全十二讲</h3>
+            <p class="hck-topic-desc">以真实事故复盘为线索，系统讲解货架、叉车、消防、人身防护四个维度的规范与实操。</p>
+            <ul class="hck-topic-items">
+              <li>第九讲：货架承重标识的三种误读</li>
+              <li>第十讲：叉车通道盲区的通行规则</li>
+              <li>第十一讲：旺季临时工的岗前安全培训</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="hck-topic">
+          <div class="hck-topic-cover">
+            <svg viewBox="0 0 480 270" role="img" aria-label="专题封面：小仓数字化改造的预算表与系统架构示意">
+              <rect width="480" height="270" fill="#F3EAD3"/>
+              <rect x="60" y="46" width="160" height="180" rx="8" fill="#FFFFFF" stroke="#E4D8BC" stroke-width="2"/>
+              <g stroke="#E4D8BC" stroke-width="2"><line x1="80" y1="86" x2="200" y2="86"/><line x1="80" y1="120" x2="200" y2="120"/><line x1="80" y1="154" x2="200" y2="154"/><line x1="80" y1="188" x2="200" y2="188"/></g>
+              <g fill="#F5B301"><rect x="80" y="66" width="66" height="8" rx="4"/><rect x="80" y="102" width="96" height="8" rx="4"/><rect x="80" y="136" width="52" height="8" rx="4"/><rect x="80" y="170" width="112" height="8" rx="4"/></g>
+              <g stroke="#231F20" stroke-width="2.4" fill="none">
+                <rect x="264" y="52" width="70" height="42" rx="6"/>
+                <rect x="360" y="52" width="70" height="42" rx="6"/>
+                <rect x="312" y="128" width="70" height="42" rx="6"/>
+                <rect x="264" y="200" width="70" height="42" rx="6"/>
+                <rect x="360" y="200" width="70" height="42" rx="6"/>
+                <line x1="334" y1="94" x2="334" y2="128"/><line x1="360" y1="94" x2="347" y2="128"/>
+                <line x1="347" y1="170" x2="309" y2="200"/><line x1="347" y1="170" x2="385" y2="200"/>
+              </g>
+              <g fill="#B8860B"><circle cx="334" cy="128" r="5"/><circle cx="347" cy="170" r="5"/></g>
+            </svg>
+          </div>
+          <div class="hck-topic-body">
+            <span class="hck-topic-status paused">◐ 第 3 季筹备中</span>
+            <h3>小仓数字化改造指南</h3>
+            <p class="hck-topic-desc">面向 5000 平方米以下中小仓储企业的实操专题，从预算表、选型对比到实施排期逐一拆解。</p>
+            <ul class="hck-topic-items">
+              <li>预算篇：8 万元改造的费项明细</li>
+              <li>选型篇：三种 WMS 部署方式的取舍</li>
+              <li>落地篇：上线首月的常见故障清单</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 创作者矩阵 ========== -->
+  <section class="hck-section hck-section-alt" id="hck-authors" aria-labelledby="hck-authors-title">
+    <div class="hck-wrap">
+      <div class="hck-sec-head">
+        <span class="hck-sec-eyebrow">Creators 创作者矩阵</span>
+        <h2 id="hck-authors-title">黄仓库网站的签约创作者</h2>
+        <p>他们既是平台的内容生产者，也是行业里的一线从业者。点击「查看简介」可了解每位创作者的拍摄方向与合作方式。</p>
+      </div>
+      <div class="hck-author-grid">
+        <article class="hck-author">
+          <div class="hck-avatar a1" aria-hidden="true">陈</div>
+          <div>
+            <h3>仓库老陈 <span class="hck-role">签约创作者</span></h3>
+            <p class="hck-field">擅长领域：入库验收 · 库内动线 · 仓管管理</p>
+            <p class="hck-bio">在华东大型立体仓做了 11 年仓管主管，习惯把每天的现场问题记在小本子上。他把这些本子变成了脚本，用最直接的镜头讲清楚一个仓库为什么容易堵、堵在哪里。拍片不爱配乐，喜欢保留现场的搬运声与扫码声。</p>
+            <div class="hck-nums"><span>作品 <b>142</b></span><span>粉丝 <b>18.6万</b></span></div>
+            <div class="hck-author-more"><button class="hck-act" type="button" data-hck-author="仓库老陈|11 年仓管主管，主拍入库验收与库内动线，主张用现场原声讲清仓库逻辑。|142|18.6万">查看简介</button></div>
+          </div>
+        </article>
+        <article class="hck-author">
+          <div class="hck-avatar a2" aria-hidden="true">林</div>
+          <div>
+            <h3>林工讲仓配 <span class="hck-role">签约创作者</span></h3>
+            <p class="hck-field">擅长领域：仓配流程 · 波次策略 · 效率优化</p>
+            <p class="hck-bio">供应链咨询顾问出身，习惯用数据说话。他的视频常以一张表格开场，再带着观众走到现场验证。擅长把抽象的排单逻辑讲成可以照着做的步骤，是不少中小仓负责人反复回看的对象。也常在评论区回答具体问题。</p>
+            <div class="hck-nums"><span>作品 <b>96</b></span><span>粉丝 <b>12.3万</b></span></div>
+            <div class="hck-author-more"><button class="hck-act" type="button" data-hck-author="林工讲仓配|供应链顾问，擅长把排单逻辑拆成可执行步骤，视频常配数据表与现场验证。|96|12.3万">查看简介</button></div>
+          </div>
+        </article>
+        <article class="hck-author">
+          <div class="hck-avatar a3" aria-hidden="true">M</div>
+          <div>
+            <h3>冷链阿May <span class="hck-role">签约创作者</span></h3>
+            <p class="hck-field">擅长领域：冷链仓储 · 温区管理 · 合规记录</p>
+            <p class="hck-bio">在冷链仓库做了 7 年温控管理，最擅长在低温环境里手持设备完成拍摄。她的内容关注冷链的「看不见的细节」：温度记录表的填写规范、穿堂区的风幕机维护、生鲜退货的分级处理。风格冷静，信息密度高。</p>
+            <div class="hck-nums"><span>作品 <b>78</b></span><span>粉丝 <b>9.4万</b></span></div>
+            <div class="hck-author-more"><button class="hck-act" type="button" data-hck-author="冷链阿May|7 年冷链温控管理经验，主拍冷链合规与温区细节，风格冷静信息密度高。|78|9.4万">查看简介</button></div>
+          </div>
+        </article>
+        <article class="hck-author">
+          <div class="hck-avatar a4" aria-hidden="true">周</div>
+          <div>
+            <h3>安全员老周 <span class="hck-role">签约创作者</span></h3>
+            <p class="hck-field">擅长领域：仓储安全 · 事故复盘 · 岗前培训</p>
+            <p class="hck-bio">前仓储安全主管，参与过多起行业事故的调查复盘，现在专职做安全培训内容。他的视频不爱讲大道理，而是把事故时间线还原出来，让观众自己看到问题出在哪一步。被很多企业的岗前培训直接引用。</p>
+            <div class="hck-nums"><span>作品 <b>63</b></span><span>粉丝 <b>15.1万</b></span></div>
+            <div class="hck-author-more"><button class="hck-act" type="button" data-hck-author="安全员老周|前仓储安全主管，以事故时间线复盘讲安全规范，内容常被用作企业岗前培训。|63|15.1万">查看简介</button></div>
+          </div>
+        </article>
+        <article class="hck-author">
+          <div class="hck-avatar a5" aria-hidden="true">赵</div>
+          <div>
+            <h3>数字化小赵 <span class="hck-role">签约创作者</span></h3>
+            <p class="hck-field">擅长领域：WMS 选型 · 系统落地 · 数据看板</p>
+            <p class="hck-bio">从仓储系统实施顾问转做内容，拍片风格像做项目交付：先列需求，再排风险，最后给结论。他擅长在有限预算内做取舍，视频里常有真实的报价单和排期表，适合准备上系统的中小仓储企业参考。</p>
+            <div class="hck-nums"><span>作品 <b>54</b></span><span>粉丝 <b>7.8万</b></span></div>
+            <div class="hck-author-more"><button class="hck-act" type="button" data-hck-author="数字化小赵|仓储系统实施顾问转型创作者，擅长预算内选型取舍，视频常含真实报价与排期。|54|7.8万">查看简介</button></div>
+          </div>
+        </article>
+        <article class="hck-author">
+          <div class="hck-avatar a2" aria-hidden="true">林</div>
+          <div>
+            <h3>木作小林 <span class="hck-role">社区创作者</span></h3>
+            <p class="hck-field">擅长领域：仓库手作 · 空间改造 · 员工休息区</p>
+            <p class="hck-bio">本职是仓库设备维护，业余做木工。他把废旧木托盘、破损塑料箱改造成休息区家具，记录从拆解到成型的全过程。内容轻松治愈，是黄仓库网站生活企划里更新最稳定的一位创作者。</p>
+            <div class="hck-nums"><span>作品 <b>41</b></span><span>粉丝 <b>6.2万</b></span></div>
+            <div class="hck-author-more"><button class="hck-act" type="button" data-hck-author="木作小林|仓库设备维护员兼木工创作者，用废旧托盘做空间改造，风格轻松治愈。|41|6.2万">查看简介</button></div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 评论口碑 ========== -->
+  <section class="hck-section" id="hck-comments" aria-labelledby="hck-comments-title">
+    <div class="hck-wrap">
+      <div class="hck-sec-head">
+        <span class="hck-sec-eyebrow">Feedback 用户口碑</span>
+        <h2 id="hck-comments-title">来自黄仓库网站社区的真实评价</h2>
+        <p>平台坚持不做刷量、不买好评。以下内容来自用户公开评论，按时间与维度随机选取，保留原始语气。</p>
+      </div>
+      <div class="hck-comments">
+        <article class="hck-comment">
+          <div class="hck-comment-top">
+            <div class="hck-cavatar" style="background:#F5D98A;">刘</div>
+            <div><div class="hck-cname">仓管刘姐</div><div class="hck-cmeta">3 天前 · 从专题「智慧仓配」进入</div></div>
+          </div>
+          <p>看了电子标签墙那集，第二天就去把我们仓的补货点重新排了一遍。视频里那个「先补高频再补整箱」的说法很受用，评论区还有同行贴了自己的排单表，这在别的地方真看不到。</p>
+          <div class="hck-cstar">★★★★★</div>
+        </article>
+        <article class="hck-comment">
+          <div class="hck-comment-top">
+            <div class="hck-cavatar" style="background:#BFDCC9;">魏</div>
+            <div><div class="hck-cname">魏工</div><div class="hck-cmeta">1 周前 · 从「仓储安全十二讲」进入</div></div>
+          </div>
+          <p>安全系列是我目前见过最不糊弄的。事故时间线一帧一帧还原，连叉车通道的盲区标线都画出来了。我直接投到我们培训大屏上给新人看，效果比念 SOP 强太多。</p>
+          <div class="hck-cstar">★★★★★</div>
+        </article>
+        <article class="hck-comment">
+          <div class="hck-comment-top">
+            <div class="hck-cavatar" style="background:#C9DCEB;">小</div>
+            <div><div class="hck-cname">小仓店主阿凯</div><div class="hck-cmeta">5 天前 · 从「小仓数字化改造指南」进入</div></div>
+          </div>
+          <p>预算篇很有诚意，报价单没打码，能看到具体费项。不过希望能补一期 SaaS 版和本地部署的对比，我们这种 2000 平的小仓更关心月付压力。</p>
+          <div class="hck-cstar">★★★★☆</div>
+        </article>
+        <article class="hck-comment">
+          <div class="hck-comment-top">
+            <div class="hck-cavatar" style="background:#E8C4B2;">甜</div>
+            <div><div class="hck-cname">冷链的阿甜</div><div class="hck-cmeta">2 天前 · 从「冷链仓库温区巡检」进入</div></div>
+          </div>
+          <p>低温环境拍摄不容易，画面还很稳，很难得。想问问用什么设备防雾的？评论区有人回答了，平台编辑还补充了一句，服务挺到位。</p>
+          <div class="hck-cstar">★★★★★</div>
+        </article>
+        <article class="hck-comment">
+          <div class="hck-comment-top">
+            <div class="hck-cavatar" style="background:#D6CEEA;">张</div>
+            <div><div class="hck-cname">物流教师张sir</div><div class="hck-cmeta">1 个月前 · 长期收藏用户</div></div>
+          </div>
+          <p>上课放了「从月台到高位货架」那一集，学生第一次知道仓库里一台 AGV 是怎么跟人错身的。这类高清原创素材对教学帮助很大，希望能多做一点带字幕的数据说明。</p>
+          <div class="hck-cstar">★★★★★</div>
+        </article>
+        <article class="hck-comment">
+          <div class="hck-comment-top">
+            <div class="hck-cavatar" style="background:#F3D5A0;">海</div>
+            <div><div class="hck-cname">沿海转运老海</div><div class="hck-cmeta">4 天前 · 从热门视频流进入</div>
+          </div>
+          <p>整体挺好，就是有的视频太长，中午休息看不完。要是有个十分钟以内的精华剪辑版就好了，通勤路上能刷。</p>
+          <div class="hck-cstar">★★★☆☆</div>
+        </article>
+        <div class="hck-cform">
+          <input type="text" id="hck-comment-input" placeholder="说说你的收获或建议，编辑会挑选优质评论上墙" aria-label="写评论">
+          <button class="hck-btn hck-btn-amber" type="button" id="hck-comment-submit">发布评论</button>
+          <span class="hck-cform-hint">本页为演示交互，评论仅作前端反馈，不会真正提交。</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 企业动态 + FAQ + 合作 ========== -->
+  <section class="hck-section hck-section-alt" id="hck-news" aria-labelledby="hck-news-title">
+    <div class="hck-wrap">
+      <div class="hck-sec-head">
+        <span class="hck-sec-eyebrow">News &amp; Support 企业动态与支持</span>
+        <h2 id="hck-news-title">黄仓库网站企业动态与常见问答</h2>
+        <p>官方发布的信息都会在此处集中更新。合作品牌与常见问答同步维护，便于新用户快速了解平台的服务边界。</p>
+      </div>
+
+      <div class="hck-tri">
+        <div>
+          <div class="hck-news">
+            <article class="hck-news-item">
+              <div class="hck-news-date">11月18日<br>2026</div>
+              <div>
+                <h3>《智慧仓配全流程实录》第 6 集上线</h3>
+                <p>本集聚焦电子标签墙的日常维护，含 7 项点检细则与故障处理流程，已在专题页更新并开放高清下载。</p>
+              </div>
+            </article>
+            <article class="hck-news-item">
+              <div class="hck-news-date">11月12日<br>2026</div>
+              <div>
+                <h3>年度仓储影像挑战开放报名</h3>
+                <p>面向一线从业者征集「我的仓库一天」主题短片，截止 12 月 20 日，入围作品将在官网专题展映。</p>
+              </div>
+            </article>
+            <article class="hck-news-item">
+              <div class="hck-news-date">11月6日<br>2026</div>
+              <div>
+                <h3>创作者投稿审核周期调整</h3>
+                <p>投稿审核统一缩短至 14 个工作日，安全类内容因需双人核验保持原周期，感谢理解与耐心等待。</p>
+              </div>
+            </article>
+            <article class="hck-news-item">
+              <div class="hck-news-date">10月29日<br>2026</div>
+              <div>
+                <h3>高清下载页改版上线</h3>
+                <p>新增按专题、岗位线筛选，支持批量加入下载队列，企业账号可申请授权范围内的教学用途下载。</p>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div>
+          <div class="hck-faq" id="hck-faq">
+            <details open>
+              <summary>黄仓库网站是售卖仓库货架或设备的网站吗？</summary>
+              <div class="hck-faq-body">不是。黄仓库网站是仓储与供应链主题的原创视频内容平台，属于品牌官方网站，提供行业视频、专题企划与创作者社区服务，不直接销售仓储设备。</div>
+            </details>
+            <details>
+              <summary>平台上的视频可以用于企业内部培训吗？</summary>
+              <div class="hck-faq-body">可以。标注「开放授权」的视频允许在企业内部培训中播放，需保留片头与来源说明。如需去除片头或二次剪辑，请通过投稿页提交授权申请。</div>
+            </details>
+            <details>
+              <summary>如何成为平台签约创作者？</summary>
+              <div class="hck-faq-body">先注册账号并投稿至少 3 条原创视频，内容需与仓储、物流、供应链相关。编辑会在审核后联系合适的创作者，沟通选题方向与分成方式。</div>
+            </details>
+            <details>
+              <summary>视频里出现我所在企业的作业画面，可以申请下架吗？</summary>
+              <div class="hck-faq-body">可以。请通过页面底部的联系入口提交企业证明与具体时间码，平台会在核实后 72 小时内处理，并同步更新相关专题说明。</div>
+            </details>
+            <details>
+              <summary>高清下载与在线观看有什么区别？</summary>
+              <div class="hck-faq-body">在线观看提供自适应清晰度，适合日常浏览；高清下载提供 1080P 文件，适合教学、内训与离线场景。下载需要登录并遵守授权范围。</div>
+            </details>
+            <details>
+              <summary>投稿后多久能收到审核结果？</summary>
+              <div class="hck-faq-body">一般为 14 个工作日内，安全类内容因需要双人交叉核验可能稍长。审核结果会通过站内消息通知，未通过会说明具体原因。</div>
+            </details>
+            <details>
+              <summary>平台如何保证内容真实可信？</summary>
+              <div class="hck-faq-body">所有上架内容须通过事实核查，安全数据须两位从业者交叉确认，引用标准须标注编号；用户报错后 72 小时内回应并更正。</div>
+            </details>
+          </div>
+
+          <div style="margin-top:22px;">
+            <h3 style="font-size:15px;font-weight:900;margin-bottom:12px;">合作品牌与伙伴</h3>
+            <div class="hck-partners">
+              <div class="hck-partner"><div class="hck-pmark" style="background:#F5D98A;">华</div><strong>华储智联</strong><span>智能仓储设备</span></div>
+              <div class="hck-partner"><div class="hck-pmark" style="background:#BFDCC9;">冷</div><strong>冷鲜通</strong><span>冷链物流服务</span></div>
+              <div class="hck-partner"><div class="hck-pmark" style="background:#C9DCEB;">云</div><strong>云仓科技</strong><span>WMS 系统服务</span></div>
+              <div class="hck-partner"><div class="hck-pmark" style="background:#E8C4B2;">物</div><strong>物联学院</strong><span>行业培训机构</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== 投稿 CTA ========== -->
+  <section class="hck-section" id="hck-upload">
+    <div class="hck-wrap">
+      <div class="hck-cta">
+        <div>
+          <h2>把你的仓库拍下来，让行业看见</h2>
+          <p>无论你是仓管、拣选员、叉车司机还是系统实施顾问，只要你有真实的现场经验与拍摄意愿，黄仓库网站都欢迎你投稿。我们提供选题共创、拍摄剪辑培训与正版授权分成，让一线经验成为持续生长的行业资产。</p>
+        </div>
+        <div class="hck-cta-actions">
+          <button class="hck-btn hck-btn-amber" type="button" data-hck-modal="upload">立即投稿</button>
+          <button class="hck-btn hck-btn-ghost" type="button" data-hck-modal="contact" style="border-color:#F5B301;color:#F5B301;">联系编辑部</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ========== 页脚 ========== -->
+<footer class="hck-footer">
+  <div class="hck-wrap">
+    <div class="hck-footer-grid">
+      <div>
+        <div class="hck-footer-brand">
+          <span class="hck-brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M3 9l9-5 9 5v11H3V9z" fill="#231F20"/><rect x="9" y="13" width="6" height="7" fill="#F5B301"/></svg>
+          </span>
+          <strong>黄仓库网站</strong>
+        </div>
+        <p>黄仓库网站官方网站，专注仓储与供应链领域的原创高清视频内容平台，持续运营中。以真实影像记录一线经验，以专业态度建设值得信赖的行业内容生态。</p>
+      </div>
+      <div>
+        <h3>内容导航</h3>
+        <ul>
+          <li><a href="#hck-focus">焦点内容</a></li>
+          <li><a href="#hck-essay">关键词深度解析</a></li>
+          <li><a href="#hck-topics">专题企划</a></li>
+          <li><a href="#hck-authors">创作者矩阵</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>服务支持</h3>
+        <ul>
+          <li><a href="#hck-news">企业动态</a></li>
+          <li><a href="#hck-faq">常见问答</a></li>
+          <li><a href="#hck-upload">投稿与报名</a></li>
+          <li><a href="#hck-comments">用户口碑</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>联系我们</h3>
+        <ul>
+          <li>合作邮箱：hello@huangcangku.example</li>
+          <li>投稿咨询：submit@huangcangku.example</li>
+          <li>工作日 09:30 – 18:30 在线</li>
+          <li>地址：华东仓配产业带 · 影像制作中心</li>
+        </ul>
+      </div>
+    </div>
+    <div class="hck-footer-bottom">
+      <span>© 2026 黄仓库网站 · 官方网站 | 版权所有 | 持续运营中</span>
+      <span>内容为原创正版 · 高清授权 · 备案号：演示备案 HUANG-2026-001</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ========== 弹窗 ========== -->
+<div class="hck-modal-mask" id="hck-modal-mask">
+  <div class="hck-modal" id="hck-modal" role="dialog" aria-modal="true" aria-label="信息弹窗">
+    <div class="hck-modal-head">
+      <h3 id="hck-modal-title">提示</h3>
+      <button class="hck-modal-close" type="button" id="hck-modal-close" aria-label="关闭弹窗">×</button>
+    </div>
+    <div id="hck-modal-body"></div>
+  </div>
+</div>
+
+<div class="hck-toast" id="hck-toast"></div>
+<button class="hck-top-btn" id="hck-top-btn" type="button" aria-label="回到顶部" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+(function(){
+  "use strict";
+
+  var toastTimer = null;
+  function toast(msg){
+    var t = document.getElementById('hck-toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(function(){ t.classList.remove('show'); }, 2200);
+  }
+
+  /* ---------- 移动端导航 ---------- */
+  var burger = document.getElementById('hck-burger');
+  var nav = document.getElementById('hck-nav');
+  burger.addEventListener('click', function(){
+    var open = nav.classList.toggle('open');
+    burger.classList.toggle('open', open);
+    burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  nav.addEventListener('click', function(e){
+    if(e.target.tagName === 'A'){
+      nav.classList.remove('open');
+      burger.classList.remove('open');
+      burger.setAttribute('aria-expanded','false');
+    }
+  });
+
+  /* ---------- 搜索提示 ---------- */
+  var searchInput = document.getElementById('hck-search-input');
+  var searchTip = document.getElementById('hck-search-tip');
+  var searchBtn = document.getElementById('hck-search-btn');
+
+  var index = [
+    {t:'《智慧仓配全流程实录》第一集：从月台到高位货架', k:'仓储 入库 月台 货架 智慧仓配'},
+    {t:'拣选 1200 单/小时的秘密：电子标签墙与波次策略拆解', k:'拣选 电子标签 波次 效率'},
+    {t:'冷链仓库温区巡检：一支温度计的 24 小时', k:'冷链 温区 巡检 温度'},
+    {t:'仓储安全十二讲：货架承重标识到底怎么看', k:'安全 货架 承重 事故'},
+    {t:'小仓也能上系统：8 万元预算的 WMS 选型与落地', k:'WMS 系统 数字化 预算 选型'},
+    {t:'仓库里的手作：用废旧木托盘做一张休息区长桌', k:'手作 托盘 空间改造'},
+    {t:'专题：智慧仓配全流程实录', k:'专题 智慧仓配 全流程'},
+    {t:'专题：仓储安全十二讲', k:'专题 安全'},
+    {t:'创作者：仓库老陈', k:'创作者 作者 仓库老陈 仓管'},
+    {t:'创作者：林工讲仓配', k:'创作者 作者 林 仓配'},
+    {t:'创作者：冷链阿May', k:'创作者 作者 冷链 May'},
+    {t:'FAQ：视频能否用于企业内部培训', k:'帮助 FAQ 培训 授权'}
+  ];
+
+  function runSearch(){
+    var q = searchInput.value.trim().toLowerCase();
+    if(!q){
+      searchTip.innerHTML = '<p class="hck-tip-empty">请输入关键词，例如「冷链」「安全」「WMS」。</p>';
+      searchTip.classList.add('show');
+      return;
+    }
+    var hits = index.filter(function(item){
+      return item.t.toLowerCase().indexOf(q) > -1 || item.k.toLowerCase().indexOf(q) > -1;
+    }).slice(0,5);
+    if(hits.length){
+      var html = '<p>找到 <b>' + hits.length + '</b> 条相关内容：</p>';
+      hits.forEach(function(item){
+        html += '<p>· ' + item.t + '</p>';
+      });
+      searchTip.innerHTML = html;
+    }else{
+      searchTip.innerHTML = '<p class="hck-tip-empty">暂无匹配内容，换个词试试，或到「专题企划」按分类浏览。</p>';
+    }
+    searchTip.classList.add('show');
+  }
+  searchBtn.addEventListener('click', runSearch);
+  searchInput.addEventListener('input', function(){
+    if(!searchInput.value.trim()){ searchTip.classList.remove('show'); }
+  });
+  searchInput.addEventListener('keydown', function(e){
+    if(e.key === 'Enter'){ e.preventDefault(); runSearch(); }
+  });
+  document.addEventListener('click', function(e){
+    if(!e.target.closest('.hck-search')){ searchTip.classList.remove('show'); }
+  });
+
+  /* ---------- 点赞 / 收藏 ---------- */
+  document.addEventListener('click', function(e){
+    var likeBtn = e.target.closest('[data-hck-like]');
+    if(likeBtn){
+      var numEl = likeBtn.querySelector('.hck-like-num');
+      var active = likeBtn.classList.toggle('on');
+      var raw = numEl.textContent.replace(/,/g,'');
+      var n = parseInt(raw,10) || 0;
+      n = active ? n + 1 : Math.max(0, n - 1);
+      numEl.textContent = n.toLocaleString('en-US');
+      toast(active ? '已点赞，感谢支持原创内容' : '已取消点赞');
+      return;
+    }
+    var favBtn = e.target.closest('[data-hck-fav]');
+    if(favBtn){
+      var on = favBtn.classList.toggle('on');
+      var svg = favBtn.querySelector('svg');
+      if(svg){ svg.setAttribute('fill', on ? 'currentColor' : 'none'); }
+      toast(on ? '已加入收藏，可在个人中心查看' : '已取消收藏');
+    }
+  });
+
+  /* ---------- 弹窗 ---------- */
+  var mask = document.getElementById('hck-modal-mask');
+  var mTitle = document.getElementById('hck-modal-title');
+  var mBody = document.getElementById('hck-modal-body');
+
+  function openModal(title, bodyHTML){
+    mTitle.textContent = title;
+    mBody.innerHTML = bodyHTML;
+    mask.classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModal(){
+    mask.classList.remove('show');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('hck-modal-close').addEventListener('click', closeModal);
+  mask.addEventListener('click', function(e){ if(e.target === mask){ closeModal(); } });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && mask.classList.contains('show')){ closeModal(); } });
+
+  var shareHTML =
+    '<p>把这条内容分享给一起做仓库的朋友，也欢迎微信、微博、QQ 群转发。</p>' +
+    '<div class="hck-share-row">' +
+      '<button type="button" data-hck-copy>复制链接</button>' +
+      '<button type="button" data-hck-share-to="微信">微信</button>' +
+      '<button type="button" data-hck-share-to="微博">微博</button>' +
+      '<button type="button" data-hck-share-to="QQ">QQ</button>' +
+    '</div>';
+
+  document.addEventListener('click', function(e){
+    var shareBtn = e.target.closest('[data-hck-share]');
+    if(shareBtn){
+      openModal('分享内容', shareHTML);
+      return;
+    }
+    var shareTo = e.target.closest('[data-hck-share-to]');
+    if(shareTo){ toast('已生成' + shareTo.getAttribute('data-hck-share-to') + '分享提示'); return; }
+    var copyBtn = e.target.closest('[data-hck-copy]');
+    if(copyBtn){
+      var link = 'https://huangcangku.example/video/warehouse';
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(link).then(function(){ toast('链接已复制到剪贴板'); }).catch(function(){ toast('复制失败，请手动选择链接'); });
+      }else{
+        var tmp = document.createElement('textarea');
+        tmp.value = link;
+        document.body.appendChild(tmp);
+        tmp.select();
+        try{ document.execCommand('copy'); toast('链接已复制到剪贴板'); }catch(err){ toast('复制失败，请手动选择链接'); }
+        document.body.removeChild(tmp);
+      }
+      return;
+    }
+    var authorBtn = e.target.closest('[data-hck-author]');
+    if(authorBtn){
+      var parts = authorBtn.getAttribute('data-hck-author').split('|');
+      openModal(parts[0], '<p>' + parts[1] + '</p><div class="hck-modal-tags"><span>作品 ' + parts[2] + '</span><span>粉丝 ' + parts[3] + '</span><span>签约创作者</span></div><p>如需合作拍摄或内容授权，请通过页脚邮箱联系编辑部，并注明创作者昵称。</p>');
+      return;
+    }
+    var modalBtn = e.target.closest('[data-hck-modal]');
+    if(modalBtn){
+      var type = modalBtn.getAttribute('data-hck-modal');
+      if(type === 'upload'){
+        openModal('投稿入口', '<p>投稿前请准备：① 3 条原创视频或拍摄样片；② 选题方向简述；③ 拍摄设备与可拍摄场景说明。</p><p>提交方式：将材料发送至 submit@huangcangku.example，邮件标题格式为「投稿-昵称-选题方向」。</p><div class="hck-modal-tags"><span>审核约 14 个工作日</span><span>正版授权</span><span>分成结算</span></div>');
+      }else if(type === 'contact'){
+        openModal('联系编辑部', '<p>合作与内容授权：hello@huangcangku.example</p><p>创作者投稿：submit@huangcangku.example</p><p>企业证明与下架申请：rights@huangcangku.example，请附具体视频链接与时间码。</p><p>工作时间：周一至周五 09:30 – 18:30。</p>');
+      }else if(type === 'play'){
+        var title = modalBtn.getAttribute('data-title') || '视频';
+        openModal('正在播放 · ' + title, '<p>本页为演示环境，播放器未加载真实视频流。正式站点中，该位置将展示高清正版内容，并支持清晰度切换、字幕与章节跳转。</p><p>你可以先把内容加入收藏，稍后在专题页完整观看。</p>');
+      }
+      return;
+    }
+  });
+
+  /* ---------- 评论提交 ---------- */
+  var cInput = document.getElementById('hck-comment-input');
+  var cSubmit = document.getElementById('hck-comment-submit');
+  cSubmit.addEventListener('click', function(){
+    var v = cInput.value.trim();
+    if(v.length < 4){ toast('评论至少写 4 个字，说说你的真实收获'); return; }
+    var box = document.querySelector('.hck-comments');
+    var form = document.querySelector('.hck-cform');
+    var article = document.createElement('article');
+    article.className = 'hck-comment';
+    article.innerHTML = '<div class="hck-comment-top"><div class="hck-cavatar" style="background:#F5D98A;">我</div><div><div class="hck-cname">我</div><div class="hck-cmeta">刚刚 · 本页读者</div></div></div><p></p><div class="hck-cstar">★★★★★</div>';
+    article.querySelector('p').textContent = v;
+    box.insertBefore(article, form);
+    cInput.value = '';
+    toast('评论已提交到前端列表，感谢参与');
+  });
+
+  /* ---------- 数字滚动 ---------- */
+  var counters = document.querySelectorAll('[data-hck-count]');
+  function animateCounter(el){
+    var target = parseInt(el.getAttribute('data-hck-count'),10);
+    var suffix = el.querySelector('span') ? el.querySelector('span').outerHTML : '';
+    var start = 0, dur = 1200, t0 = null;
+    function step(ts){
+      if(!t0) t0 = ts;
+      var p = Math.min(1, (ts - t0) / dur);
+      var eased = 1 - Math.pow(1 - p, 3);
+      var val = Math.round(target * eased);
+      el.innerHTML = val.toLocaleString('en-US') + suffix;
+      if(p < 1){ requestAnimationFrame(step); }
+    }
+    requestAnimationFrame(step);
+  }
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if(en.isIntersecting){ animateCounter(en.target); io.unobserve(en.target); }
+      });
+    }, {threshold:0.4});
+    counters.forEach(function(c){ io.observe(c); });
+  }else{
+    counters.forEach(function(c){
+      var target = parseInt(c.getAttribute('data-hck-count'),10);
+      var suffix = c.querySelector('span') ? c.querySelector('span').outerHTML : '';
+      c.innerHTML = target.toLocaleString('en-US') + suffix;
+    });
+  }
+
+  /* ---------- 回到顶部 ---------- */
+  var topBtn = document.getElementById('hck-top-btn');
+  function checkTop(){
+    if(window.scrollY > 520){ topBtn.classList.add('show'); }
+    else{ topBtn.classList.remove('show'); }
+  }
+  window.addEventListener('scroll', checkTop, {passive:true});
+  checkTop();
+
+})();
+</script>
+</body>
+                </html>
